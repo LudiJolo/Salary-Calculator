@@ -21,5 +21,8 @@ import homepage
 #urls per app
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', include("homepage.urls"))
+    path('', include("homepage.urls")),
+    path('about/', include('about.urls')),
+    path('contacts/', include('contacts.urls')),
+    path('projects/', include('projects.urls')),
 ]

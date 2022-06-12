@@ -1,0 +1,36 @@
+{%extends "home/navbar.html"%}
+{%block body%}
+<div class="container-fluid bg-primary mx-auto p-5 rounded-4 position-absolute top-50 start-50 translate-middle" style="width: 50%;">
+    <div id="intro">
+        <h1 style="font-size: 70px;">Contact Me</h1>
+    </div>
+    <div id="information">
+        <section id="personal">
+            <p><strong> Phone number: </strong>(626) 549-9045</p>
+            <p><strong> Email Addresses: </strong>joloh18@yahoo.com</p>
+        </section>
+    </div>
+
+
+    <div  id="contact_form" >
+        <h2>Send me a message:</h2>
+        <form class="" id="info_form">
+            <div class="mb-3">
+                <label for="fullname" class="form-label">Full Name:</label>
+                <input type="text" class="form-control" id="fullname" placeholder="Please enter your name here">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="email@company.com" >
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Enter your message here"></textarea>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+{%endblock%}

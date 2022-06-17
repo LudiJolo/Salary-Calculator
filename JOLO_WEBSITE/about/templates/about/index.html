@@ -12,9 +12,30 @@
     </div>
     <div class="row bg-primary">
         <h1>Skills learned</h1>
+        <ul>
+            {%for skill in skills%}
+                <li>
+                    <div>
+                        <p>{{skill.name}}: {{skill.level}}</p>
+                        <p>{{skill.description}}</p>
+                    </div>
+                </li>
+            {%empty%}
+                <li>No skills</li>
+            {%endfor%}
+        </ul>
     </div>
     <div class="row bg-warning">
         <h1>Education</h1>
+        <ul>
+            {%for education in educations%}
+            <li>
+                <p>{{education.schoolName}}</p>
+                <p>{{education.startYear}} - {{education.endYear}}</p>
+                <p>{{education.degree}}</p>
+            </li>
+            {%endfor%}
+        </ul>
     </div>
 </div>
 {%endblock%}

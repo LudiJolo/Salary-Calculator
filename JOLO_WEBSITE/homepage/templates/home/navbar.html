@@ -1,35 +1,46 @@
-{% load static tailwind_tags %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jolo's Website</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    {% tailwind_css %}
+    <link rel="stylesheet" href="{%static 'homepage/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{%static 'homepage/home.js'%}"></script>
+    
+
 </head>
-<body class="bg-secondary">
+<body class="bg-light">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light position-relative">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-      <ul class="navbar-nav">
+    <div class="form-check form-switch">
+      <input type="checkbox" class="form-check-input" id="darkSwitch" checked>
+      <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
+    <script src="{%static 'homepage/dark-mode-switch.min.js'%}"></script>
+    <div class="collapse navbar-collapse " id="navbarToggleExternalContent">
+      <ul id="navbar_container" class="navbar-nav position-absolute top-50 start-50 translate-middle">
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'homepage:index'%}">Home</a>
+          <a class="nav-link" href="{%url 'homepage:index'%}">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'about:index'%}">About</a>
+          <a class="nav-link" href="{%url 'about:index'%}">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'projects:index'%}">Projects</a>
+          <a class="nav-link" href="{%url 'projects:index'%}">PROJECTS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'contacts:index'%}">Contacts</a>
+          <a class="nav-link" href="{%url 'contacts:index'%}">CONTACTS</a>
         </li>
       </ul>
     </div>
+    
   </div>
 </nav>
 

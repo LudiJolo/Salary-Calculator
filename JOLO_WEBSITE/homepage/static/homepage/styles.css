@@ -1,4 +1,36 @@
-$light: #dddddd;
-$dark: #011100;
+@import url('Quantum.otf');
+[data-theme="dark"] {
+    background-color: #111 !important;
+    color: #eee;
+  }
+  
+[data-theme="dark"] .bg-black {
+    background-color: #fff !important;
+    }
+  
+[data-theme="dark"] .bg-dark {
+    background-color: #eee !important;
+  }
+  
+[data-theme="dark"] .bg-light {
+    background-color: #222 !important;
+  }
+  
+[data-theme="dark"] .bg-white {
+    background-color: #000 !important;
+  }
 
-@import "bootstrap";
+
+.nav-link{
+  font-family:"Quantum";
+  color:#D2691E;
+  font-size: 1.5em;
+}
+.nav-link:hover{
+  color: burlywood;
+}
+
+@font-face {
+  font-family: 'Quantum';
+  src: url('Quantum.otf');
+}

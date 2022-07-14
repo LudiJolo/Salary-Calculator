@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'projects.apps.ProjectsConfig',
     'contacts.apps.ContactsConfig',
+    'template.apps.TemplateConfig',
     'theme',
 
 ]

@@ -1,41 +1,110 @@
-{%extends "home/navbar.html"%}
-{%block body%}
-<div class="container-fluid ">
+{%extends "home/navbar.html"%} {%block body%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'homepage/styles.css' %}">
+
+
+<script>
+  let navlinks = document.querySelectorAll('.nav-link');
+  let home = document.createElement('a');
+  let i = document.createElement('i');
+
+  navlinks.forEach((nav_link)=>{nav_link.style.display = 'none'});
+
+  home.innerHTML = 'back to home';
+  home.href = "{%url 'homepage:index'%}";
+  i.className = "fa-solid fa-house";
+
+  document.querySelector('#navbar').append(home);
+  document.querySelector('#navbar').append(i);
+</script>
+
+
+<section id="about" class="about">
+  <div class="container">
     <div class="row">
-        <div class="col border-end border-3">
-            <h1>About me</h1>
-            <p>description</p>
-        </div>
-        <div class="col">
-            <h1>image here</h1>
-        </div>
-    </div>
-    <div>
-        <h1>Skills learned</h1>
-        <ul class="row">
-            {%for skill in skills%}
-                <li class="col-12 col-md-4 col-sm-6">
-                    <div>
-                        <p>{{skill.name}}: {{skill.level}}</p>
-                        <p>{{skill.description}}</p>
-                    </div>
-                </li>
-            {%empty%}
-                <li>No skills</li>
-            {%endfor%}
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+        <img src="{%static 'homepage/img/ludicolo.jpg'%}" class="img-fluid" alt="" />
+      </div>
+      <div
+        class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"
+        data-aos="fade-right"
+      >
+        <h1>About me</h1>
+        <p>
+          A current CalStateLA student who pursues a BS degree in Computer
+          Science and is interested in working for an organization as a Software
+          Engineer/Developer.
+        </p>
+        <ul>
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Proficient in programming
+            fundamentals
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Generally knowledgeable about
+            technology in terms of troubleshooting, networking, and security
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Passionate in learning about new
+            things in technology
+          </li>
         </ul>
+        <p>
+          I previously worked in a fast food restaurant where I gained my
+          interpersonal communication skill and experienced working under
+          pressure.
+        </p>
+      </div>
     </div>
-    <div>
-        <h1>Education</h1>
-        <ul class="row">
-            {%for education in educations%}
-            <li class="col-12 col-md-6">
-                <p>{{education.schoolName}}</p>
-                <p>{{education.startYear}} - {{education.endYear}}</p>
-                <p>{{education.degree}}</p>
-            </li>
-            {%endfor%}
-        </ul>
+  </div>
+</section>
+<!-- End About Section -->
+
+
+<!-- ======= Skills Section ======= -->
+<section id="skills" class="skills">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Skills</span>
+      <h2>Skills</h2>
+      <p>These are the skills I have obtained and improving since the start of my college career</p>
     </div>
-</div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+        <div class="icon-box">
+          <div class="icon"><i class="fa-brands fa-python"></i></div>
+          <h4><a href="">Python</a></h4>
+          <p>Web programmig with Django, Machine Learning, Desktop App Development</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos-delay="150">
+        <div class="icon-box">
+          <div class="icon"><i class="fa-brands fa-java"></i></div>
+          <h4><a href="">Java</a></h4>
+          <p>Application Development</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos-delay="300">
+        <div class="icon-box">
+          <div class="icon"><i class="fa-brands fa-react"></i></div>
+          <h4><a href="">React</a></h4>
+          <p>Web App Development, Mobile app Development with React Native</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos-delay="450">
+        <div class="icon-box">
+          <div class="icon"><i class="fa-brands fa-github"></i></div>
+          <h4><a href="">Github</a></h4>
+          <p>Peer programming, Version Control</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
 {%endblock%}

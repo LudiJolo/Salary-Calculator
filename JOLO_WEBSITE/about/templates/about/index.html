@@ -1,5 +1,6 @@
 {%extends "home/navbar.html"%} {%block body%}
 {%load static%}
+<!-- ======= About Page ======= -->
 <link rel="stylesheet" href="{%static 'homepage/styles.css' %}">
 
 
@@ -12,10 +13,11 @@
 
   home.innerHTML = 'back to home';
   home.href = "{%url 'homepage:index'%}";
+  home.id = 'home_button';
   i.className = "fa-solid fa-house";
 
   document.querySelector('#navbar').append(home);
-  document.querySelector('#navbar').append(i);
+  document.querySelector('#home_button').append(i);
 </script>
 
 
@@ -72,39 +74,42 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-        <div class="icon-box">
-          <div class="icon"><i class="fa-brands fa-python"></i></div>
-          <h4><a href="">Python</a></h4>
-          <p>Web programmig with Django, Machine Learning, Desktop App Development</p>
+      {%for skill in skills%}
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos-delay="300" data-aos="fade-up">
+        <div class="icon-box" style="width: 100%;">
+          <div class="icon"><i class="{{skill.icon_html}}"></i></div>
+          <h4><a href="">{{skill.name}}</a></h4>
+          <p>{{skill.description}}</p>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos-delay="150">
-        <div class="icon-box">
-          <div class="icon"><i class="fa-brands fa-java"></i></div>
-          <h4><a href="">Java</a></h4>
-          <p>Application Development</p>
-        </div>
-      </div>
+      {%endfor%}
+  </div>
+</section><!-- End Skills Section -->
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos-delay="300">
-        <div class="icon-box">
-          <div class="icon"><i class="fa-brands fa-react"></i></div>
-          <h4><a href="">React</a></h4>
-          <p>Web App Development, Mobile app Development with React Native</p>
-        </div>
-      </div>
+<!-- ======= Education Section ======= -->
+<section id="education" class="education">
+  <div class="container">
 
-      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos-delay="450">
-        <div class="icon-box">
-          <div class="icon"><i class="fa-brands fa-github"></i></div>
-          <h4><a href="">Github</a></h4>
-          <p>Peer programming, Version Control</p>
-        </div>
-      </div>
+    <div class="section-title">
+      <span>Education</span>
+      <h2>Education</h2>
+      <p>These are the schools that I have attended</p>
     </div>
 
+    <div class="row">
+    {%for ed in educations%}
+      <div class="col-lg-6 col-md-12 d-flex align-items-stretch mt-4" data-aos-delay="300" data-aos="fade-up">
+        <div class="ed-box" style="width: 100%;">
+          <div class="icon"><img src="{{STATIC_URL}}/static/homepage/img/{{ed.logo}}"></div>
+          <h2>{{ed.schoolName}}</h2>
+          <p class="ed-year">{{ed.startYear}} - {{ed.endYear}}</p>
+          <p>{{ed.degree}}</p>
+        </div>
+      </div>
+    {%endfor%}
   </div>
-</section><!-- End Services Section -->
+</section>
+<!-- End Education Section -->
+<!-- {{STATIC_URL}}homepage/img/{{ed.logo}} -->
 {%endblock%}

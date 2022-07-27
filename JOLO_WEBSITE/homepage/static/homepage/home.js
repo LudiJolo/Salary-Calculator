@@ -103,6 +103,24 @@
     onscroll(document, headerFixed);
   }
 
+
+  /**
+   * Expand Skills
+   */
+  on("click", "#expand", function(e){
+    fetch(`/skills?`)
+    .then(response => response.json)
+    .then(data =>{
+      data.skills.forEach(add_skill)
+    })
+
+    function add_skill(content){
+      console.log(content);
+    }
+  })
+
+
+
   /**
    * Back to top button
    */

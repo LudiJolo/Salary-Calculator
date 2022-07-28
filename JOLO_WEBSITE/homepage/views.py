@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from about.models import Skill, Education
+from .models import Skill, Education
 # Create your views here.
 
 def index(request):
@@ -8,13 +8,3 @@ def index(request):
         'skills': Skill.objects.all(),
         'educations': Education.objects.all()
     })
-
-def skills(request):
-    start = 0
-    end = len(Skill.objects.all())-1
-    data = Skill.objects.all()
-    
-    return JsonResponse({
-        'skills': data
-    })
-

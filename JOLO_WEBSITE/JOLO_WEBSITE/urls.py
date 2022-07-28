@@ -24,8 +24,6 @@ import homepage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("homepage.urls")),
-    path('about/', include('about.urls')),
-    path('contacts/', include('contacts.urls')),
     path('projects/', include('projects.urls')),
     path('template/', include('template.urls')),
 ]

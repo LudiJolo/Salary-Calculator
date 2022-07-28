@@ -44,7 +44,7 @@
    * Navbar links active state on scroll
    */
   let navbarlinks = select("#navbar .scrollto", true);
-  
+
   const navbarlinksActive = () => {
     let position = window.scrollY + 200;
     navbarlinks.forEach((navbarlink) => {
@@ -68,7 +68,6 @@
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
-    
     let header = select("#header");
     let offset = header.offsetHeight;
 
@@ -103,23 +102,20 @@
     onscroll(document, headerFixed);
   }
 
-
   /**
    * Expand Skills
    */
-  on("click", "#expand", function(e){
+  on("click", "#expand", function (e) {
     fetch(`/skills?`)
-    .then(response => response.json)
-    .then(data =>{
-      data.skills.forEach(add_skill)
-    })
+      .then((response) => response.json)
+      .then((data) => {
+        data.skills.forEach(add_skill);
+      });
 
-    function add_skill(content){
+    function add_skill(content) {
       console.log(content);
     }
-  })
-
-
+  });
 
   /**
    * Back to top button
@@ -168,7 +164,7 @@
     "click",
     ".scrollto",
     function (e) {
-      console.log(this.getAttribute('href'))
+      console.log(this.getAttribute("href"));
 
       if (select(this.hash)) {
         e.preventDefault();
@@ -182,16 +178,13 @@
         }
         scrollto(this.hash);
       }
-      
     },
     true
   );
 
-
-/**
- * learn more about me button handler
- */
-
+  /**
+   * learn more about me button handler
+   */
 
   /**
    * Scroll with ofset on page load with hash links in the url
@@ -202,7 +195,6 @@
         scrollto(window.location.hash);
       }
     }
-    
   });
 
   /**
@@ -260,7 +252,18 @@
       mirror: false,
     });
   });
+
+  /**
+   * Contacts Width
+   */
+  window.addEventListener('resize', ()=>{
+    let msg_box = select('#msg_box');
+    if(window.innerWidth <= 767){
+      msg_box.style.width = '100%';
+    }
+    else{
+      msg_box.style.width = '65%';
+    }
+
+  });
 })();
-
-
-

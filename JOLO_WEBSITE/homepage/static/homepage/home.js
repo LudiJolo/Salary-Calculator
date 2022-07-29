@@ -258,7 +258,7 @@
    */
   window.addEventListener('resize', ()=>{
     let msg_box = select('#msg_box');
-    if(window.innerWidth <= 767){
+    if(window.innerWidth <= 991){
       msg_box.style.width = '100%';
     }
     else{

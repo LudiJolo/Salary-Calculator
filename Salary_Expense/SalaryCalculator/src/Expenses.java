@@ -9,8 +9,7 @@ public class Expenses extends JPanel{
     ArrayList<JLabel> expense;
     ArrayList<JTextField> expenseField;
     JTextField salaryField;
-    JLabel remainingIncome;
-    JLabel expensePercentage;
+    
 
     SalaryCalculator mySal;
 
@@ -31,8 +30,7 @@ public class Expenses extends JPanel{
         addNewExpense("Internet");
         this.setLayout(new GridLayout(5,2));
 
-        this.remainingIncome = new JLabel("Remaining Income: ");
-        this.expensePercentage = new JLabel("Expense Percentage: ");
+        
 
     }
     public void addNewExpense(String label){
@@ -44,7 +42,7 @@ public class Expenses extends JPanel{
 
         onlyNum(newField);
     }
-    public void calculate(){
+    public void calculate(JFrame f){
         int salary = Integer.valueOf(this.salaryField.getText());
         mySal = new SalaryCalculator(salary);
         for(int i=0; i<this.expense.size(); i++){
@@ -53,8 +51,13 @@ public class Expenses extends JPanel{
         System.out.println(mySal.getPercentageAfterTax());
         System.out.println(mySal.getRemainingIncome_withTax());
 
+        OutputWindow myWindow = new OutputWindow(f, mySal);
     }
 
+    /**
+     * void onlyNum(JTextField)
+     * - this function only allows numerical values
+     */
     public void onlyNum(JTextField input){
         input.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ke) {

@@ -74,6 +74,14 @@ public class SalaryCalculator{
         return sum;
     }
 
+    /**
+     * public int getSalary
+     * @return int salary
+     */
+    public int getSalary(){
+        return Salary;
+    }
+
     //returns the HashMap Expenses variable
     public HashMap<String, Integer> getExpenses(){
         return this.Expenses;

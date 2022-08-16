@@ -13,32 +13,23 @@ public class MainFrame {
 
         //Buttons
         JButton calculate = new JButton("Calculate");
-        JButton addExpense = new JButton("Add Expense");
 
         //Layouts
         JScrollPane scroll = new JScrollPane(expenses);
         JPanel buttonLayout = new JPanel();
-        buttonLayout.add(addExpense);
         buttonLayout.add(calculate);
-        buttonLayout.setLayout(new GridLayout(2,1));
 
         //Setting components
         f.setLayout(new BorderLayout());
         f.add(scroll, BorderLayout.CENTER);
         f.add(buttonLayout, BorderLayout.SOUTH);
 
-        f.setSize(250,250);
+        f.setSize(350,250);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
         //button handler functions
-        addExpense.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Expense button pressed");
-            }
-        });
         calculate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

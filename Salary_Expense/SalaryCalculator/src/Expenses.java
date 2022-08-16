@@ -25,13 +25,10 @@ public class Expenses extends JPanel{
         this.add(salary); this.add(salaryField);
 
         addNewExpense("Gas");
-        addNewExpense("Rent");
+        addNewExpense("Rent/Monthly House");
         addNewExpense("Grocery");
         addNewExpense("Internet");
         this.setLayout(new GridLayout(5,2));
-
-        
-
     }
     public void addNewExpense(String label){
         JLabel newLabel = new JLabel(label);
@@ -43,15 +40,32 @@ public class Expenses extends JPanel{
         onlyNum(newField);
     }
     public void calculate(JFrame f){
-        int salary = Integer.valueOf(this.salaryField.getText());
+        int salary;
+        //returns 0 if text field is empty
+        if(this.salaryField.getText().isEmpty()){
+            salary = 0;
+        }
+        else{
+            salary = Integer.valueOf(this.salaryField.getText());
+        }
+
         mySal = new SalaryCalculator(salary);
         for(int i=0; i<this.expense.size(); i++){
-            mySal.addExpense(this.expense.get(i).getText(), Integer.valueOf(this.expenseField.get(i).getText()));
+            if(this.expenseField.get(i).getText().isEmpty()){
+                mySal.addExpense(this.expense.get(i).getText(), 0);
+            }
+            else{
+                mySal.addExpense(this.expense.get(i).getText(), Integer.valueOf(this.expenseField.get(i).getText()));
+            }
         }
-        System.out.println(mySal.getPercentageAfterTax());
-        System.out.println(mySal.getRemainingIncome_withTax());
 
-        OutputWindow myWindow = new OutputWindow(f, mySal);
+        if(mySal.getSalary() >= mySal.getExpenseSum()){
+            OutputWindow myWindow = new OutputWindow(f, mySal);
+        }
+        else{
+            NegativeOutput msg = new NegativeOutput(f);
+        }
+
     }
 
     /**

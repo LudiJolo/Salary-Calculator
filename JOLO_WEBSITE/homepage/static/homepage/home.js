@@ -256,7 +256,7 @@
   /**
    * Contacts Width
    */
-  window.addEventListener('resize', ()=>{
+  window.addEventListener('load', ()=>{
     let msg_box = select('#msg_box');
     if(window.innerWidth <= 991){
       msg_box.style.width = '100%';

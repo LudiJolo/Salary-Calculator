@@ -133,7 +133,7 @@
           <div class="info-box mb-4">
             <i class="fa-solid fa-envelope"></i>
             <h3>My Email</h3>
-            <p>joloh18@yahoo.com</p>
+            <p>jolohernandez18@yahoo.com</p>
           </div>
         </div>
 
@@ -159,11 +159,10 @@
           id="msg_box"
         >
           <form
-            action="forms/contact.php"
-            method="post"
-            role="form"
+            action="{%url 'homepage:messageEmail'%}"
+            method="POST"
             class="php-email-form"
-          >
+          >{%csrf_token%}
             <div class="row">
               <div class="col-md-6 form-group">
                 <input
@@ -193,7 +192,6 @@
                 name="subject"
                 id="subject"
                 placeholder="Subject"
-                required
               />
             </div>
             <div class="form-group mt-3">

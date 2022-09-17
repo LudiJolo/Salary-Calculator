@@ -12,15 +12,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#initialize environ variables
+env = environ.Env()
+environ.Env.read_env()
+SECRET_KEY = env("SECRET_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a*&^cohb$&l6d7+(l2w&myc4wa0^_yi4w!z-$hmkiu+aa29!ot'
+# Secret key in env
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -135,4 +140,13 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+#Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'joloh218@gmail.com'
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 

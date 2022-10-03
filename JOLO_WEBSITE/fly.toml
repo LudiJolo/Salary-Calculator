@@ -1,4 +1,4 @@
-# fly.toml file generated for joloh on 2022-10-01T20:00:53-07:00
+# fly.toml file generated for joloh on 2022-10-02T15:23:57-07:00
 
 app = "joloh"
 kill_signal = "SIGINT"

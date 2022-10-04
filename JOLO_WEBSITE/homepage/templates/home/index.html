@@ -76,7 +76,7 @@
 
     <div id="skill_row" class="row">
       {%for skill in skills%}
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos-delay="300" data-aos="fade-up">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-down">
           <div class="icon-box" style="width: 100%;">
             <div class="icon"><i class="{{skill.icon_html}}"></i></div>
             <h4>{{forloop.counter}}: {{skill.name}}</h4>
@@ -132,7 +132,7 @@
           <div class="info-box mb-4">
             <i class="fa-solid fa-envelope"></i>
             <h3>My Email</h3>
-            <p>joloh18@yahoo.com</p>
+            <a href="mailto:joloh18@yahoo.com">joloh18@yahoo.com</a>
           </div>
         </div>
 
